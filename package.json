@@ -1,17 +1,35 @@
 {
   "name": "nextjs-boilerplate-with-auth",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write ./src/* --config ./.prettierrc",
+    "clean": "rimraf .next && echo done👍",
+    "deepclean": "rimraf .next node_modules && echo done👍"
   },
   "dependencies": {
+    "@radix-ui/react-icons": "^1.3.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "axios": "^1.7.7",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "eslint-config-prettier": "^9.1.0",
+    "lucide-react": "^0.441.0",
+    "next": "14.2.11",
+    "next-themes": "^0.3.0",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.11"
+    "react-icons": "^5.3.0",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "postcss": "^8",
