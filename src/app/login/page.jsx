@@ -1,11 +1,23 @@
-import Login from '@/pages/LoginPage';
+import { LoginPage } from '@/page';
 
-const page = () => {
+/**
+ * Metadata details for this page
+ */
+export const metadata = {
+  title: 'Login',
+  description: 'Login page for Auth'
+};
+
+/**
+ * Login Page for application
+ * Route name "/login"
+ */
+const Page = () => {
   return (
     <>
-      <Login />
+      <LoginPage />
     </>
   );
 };
 
-export default page;
+export default Page;

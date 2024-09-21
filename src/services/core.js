@@ -2,6 +2,10 @@
  * Code API configuration
  */
 
+export async function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /**
  * Creates a promise that rejects after a specified timeout
  * @param {number} ms - Timeout in milliseconds
@@ -31,7 +35,9 @@ export async function fetchAPI(endpoint, options = {}) {
     headers = {},
     body = null,
     cache = 'default',
-    next = {},
+    next = {
+      revalidate: process.env.NEXT_REVALIDATE_TIME
+    },
     timeoutMs = 5000
   } = options;
 
@@ -55,7 +61,7 @@ export async function fetchAPI(endpoint, options = {}) {
         headers: fetchHeaders,
         body: body ? JSON.stringify(body) : null,
         cache,
-        next
+        next: { next }
       }),
       timeout(timeoutMs)
     ]);

@@ -1,5 +1,5 @@
 /**
- * Loading screen for Login page
+ * Loading screen for home page
  */
 import { Loader } from '@/components';
 

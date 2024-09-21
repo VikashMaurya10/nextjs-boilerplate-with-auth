@@ -1,0 +1,7 @@
+/* import here other css files */
+@import url('./globals.css');
+
+/* Tailwind css init */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,11 +1,11 @@
 // import font
-import { geistMono, geistSans } from '@/app/fonts/font';
-import Wrapper from '@/lib/Wrapper';
+import { geistMono, geistSans } from './fonts';
 
 // import styles
-import '@/styles/globals.css';
+import '@/styles/index.css';
 
 // Other imports
+import Wrapper from '@/lib/Wrapper';
 
 // Export metadata template for the app
 export const metadata = {
@@ -20,11 +20,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-zinc-800 text-white antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-geistMono bg-zinc-800 text-white antialiased`}
       >
-        <Wrapper>
-          <main>{children}</main>
-        </Wrapper>
+        <Wrapper>{children}</Wrapper>
       </body>
     </html>
   );

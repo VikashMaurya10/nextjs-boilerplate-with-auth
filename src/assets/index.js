@@ -5,4 +5,5 @@
 //-------------- Images --------------//
 
 //-------------- React Icons --------------//
-export { LuLoader2 as Loader } from 'react-icons/lu';
+export { LuLoader2 as LoaderIcon } from 'react-icons/lu';
+export { CgSpinner as Spinner } from "react-icons/cg";

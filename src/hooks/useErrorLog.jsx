@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Custom ErrorLog hook to handle UI errors in prod
  */

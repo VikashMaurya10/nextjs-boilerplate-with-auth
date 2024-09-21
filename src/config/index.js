@@ -3,7 +3,9 @@
  * We may add other config contants here and export if needed.
  */
 
-// Configure Toast
+/**
+ * Configure Toast
+ */
 export const ToastConfig = {
   position: 'bottom-center',
   offset: '32px',
