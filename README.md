@@ -1,13 +1,15 @@
-# Next js 14.2 Bolierplate with Auth V5
+# Next js 14.2.13 Bolierplate with Auth V5
 
 ## Getting Started
 
-### Clone the repositroy
+### Clone the repositroy:
 ```bash
 git clone https://github.com/VikashMaurya10/nextjs-boilerplate-with-auth .
+# or
+git clone git@github.com:VikashMaurya10/nextjs-boilerplate-with-auth.git .
 ```
 
-### Install all dependencies
+### Install all dependencies:
 ```bash
 bun i
 # or
@@ -21,17 +23,37 @@ npm run dev
 bun dev
 ```
 
-### Checkout browser:
+### Build the application for production:
+```bash
+npm run build
+# or
+bun run build
+```
+
+### Format the code using Prettier:
+```bash
+npm run format
+# or
+bun run format
+```
+
+### Perform a deep clean (remove node_modules and .next dir):
+```bash
+npm run deepclean
+# or
+bun run deepclean
+```
+
+### Checkout development or production server:
 ```bash
 http://localhost:3000
 ```
 
 
 > [!IMPORTANT] 
-> Code structure to follow
+> Please follow predefined Code structure 
 
-> [!TIP]
-> Folder Structure
+### Folder Structure:
 - Add all image, assets, json files to **assets** folder.
 - **components** folder contains all re-usable components.
 - Add non-reusable components to that specific folder. i.e - `page/Login/components`.
@@ -85,7 +107,7 @@ src
 │   ├── index
 ```
 
-### Code structure to follow
+### Code structure to follow:
 - All route contains Loading.jsx file, while data fetching is this file trigger a loading state for ui.
 - All route page.jsx file must export metadata object like: 
 
@@ -151,6 +173,14 @@ catch(e){
 > [!TIP]
 > Break large page UI into small section and components.
 
+### Used Technologies:
+- ``Next.js @14.2.13``: Flexible React framework.
+- ``React @18``: Library for building user interfaces.
+- ``Tailwind CSS @3.4.1``: Utility-first CSS framework.
+- ``ESLint @8``: Linting tool for identifying and reporting on patterns in JavaScript.
+- ``Prettier @3.3.3``: Opinionated code formatter.
+- ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
+
 ## Contributing
 Pull requests (PRs) are welcome.
 - Create a branch with your name from dev branch.
@@ -158,3 +188,12 @@ Pull requests (PRs) are welcome.
 - Push changes to your branch and create PR to staging branch.
 - Get the PR reviewed for authenticity and merge it into staging.
 - Then finally merge all changes from staging to master to deploy in prod.
+
+## Resources
+- [Next js](https://nextjs.org/docs)
+- [React](https://react.dev/learn)
+- [Tailwind css](https://tailwindcss.com)
+- [Eslint](https://eslint.org/)
+- [Shadcn](https://ui.shadcn.com/docs)
+- [Prettier](https://prettier.io/)
+- [Figma](https://www.figma.com/)
