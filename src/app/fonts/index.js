@@ -1,3 +1,7 @@
+/**
+ * Export all fonts
+ */
+
 import localFont from 'next/font/local';
 
 export const geistSans = localFont({

@@ -6,6 +6,8 @@ import '@/styles/index.css';
 
 // Other imports
 import Wrapper from '@/lib/Wrapper';
+import { SessionProvider } from 'next-auth/react';
+import { auth } from '@/config';
 
 // Export metadata template for the app
 export const metadata = {
@@ -16,13 +18,16 @@ export const metadata = {
   description: 'Next js bolierplate with Auth v5'
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const session = await auth();
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-geistMono bg-zinc-800 text-white antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-neutral-400 font-geistMono text-black antialiased`}
       >
-        <Wrapper>{children}</Wrapper>
+        <SessionProvider session={session}>
+          <Wrapper>{children}</Wrapper>
+        </SessionProvider>
       </body>
     </html>
   );

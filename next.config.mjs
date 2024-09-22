@@ -7,6 +7,15 @@ const nextConfig = {
         destination: '/home'
       }
     ];
+  },
+
+  /**
+   * Include here you domain name for working auth js in production
+   */
+  experimental: {
+    serverActions: {
+      allowedOrigins: [''] //example.com
+    }
   }
 };
 

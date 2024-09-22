@@ -2,6 +2,8 @@
  * Code API configuration
  */
 
+import { REVALIDATE_TIME } from '@/utils';
+
 export async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
@@ -36,7 +38,7 @@ export async function fetchAPI(endpoint, options = {}) {
     body = null,
     cache = 'default',
     next = {
-      revalidate: process.env.NEXT_REVALIDATE_TIME
+      revalidate: REVALIDATE_TIME
     },
     timeoutMs = 5000
   } = options;

@@ -1,3 +1,7 @@
+/**
+ * This is Not Found Page
+ */
+
 import Link from 'next/link';
 
 export const NotFoundPage = () => {

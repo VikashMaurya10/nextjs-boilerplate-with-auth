@@ -1,4 +1,4 @@
-# Next js 14.2.13 Bolierplate with Auth V5
+# Next js 14.2.13 Bolierplate with Auth V5@beta
 
 ## Getting Started
 
@@ -14,6 +14,13 @@ git clone git@github.com:VikashMaurya10/nextjs-boilerplate-with-auth.git .
 bun i
 # or
 npm i
+```
+
+### Generate auth secret:
+```bash
+npx auth secret
+# or
+bunx auth secret
 ```
 
 ### Start the development server:
@@ -71,7 +78,7 @@ http://localhost:3000
 
 ```
 src
-.
+:
 ├── ...
 ├── app
 │   ├── fonts
@@ -104,7 +111,12 @@ src
 │   ├── index
 │   ├── global
 ├── utils
+│   ├── common
+│   ├── constants
 │   ├── index
+├── middleware
+│
+:
 ```
 
 ### Code structure to follow:
@@ -134,7 +146,7 @@ export const metadata = {
 // or
 
 /**
- * Home page for application
+ * Login page for application
  * Route name "/login"
  */
 ```
@@ -170,6 +182,37 @@ catch(e){
 }
 ```
 
+## Get user session
+
+- **Server components**
+
+```js
+// import auth, signOut from config
+import { auth, signOut } from '@/config';
+
+// Make async page.jsx file then
+export default async function Page() {
+  const session = await auth();
+  
+  // return JSX
+  return <>your JSX code here</>
+}
+```
+- **Client components**
+
+```js
+// import useSession and signOut from next-auth/react
+import { signOut, useSession } from 'next-auth/react';
+
+// Make async then page.jsx file than
+export default async function ClientComponent() {
+  const session = useSession()
+  
+  // return JSX
+  return <>your JSX code here</>
+}
+```
+
 > [!TIP]
 > Break large page UI into small section and components.
 
@@ -180,6 +223,7 @@ catch(e){
 - ``ESLint @8``: Linting tool for identifying and reporting on patterns in JavaScript.
 - ``Prettier @3.3.3``: Opinionated code formatter.
 - ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
+- ``Auth.js @5.0.0-beta.21``: React component library that offers a set of pre-built, customizable components for building modern web apps.
 
 ## Contributing
 Pull requests (PRs) are welcome.
@@ -196,4 +240,5 @@ Pull requests (PRs) are welcome.
 - [Eslint](https://eslint.org/)
 - [Shadcn](https://ui.shadcn.com/docs)
 - [Prettier](https://prettier.io/)
+- [Auth v5](https://authjs.dev/getting-started/migrating-to-v5)
 - [Figma](https://www.figma.com/)

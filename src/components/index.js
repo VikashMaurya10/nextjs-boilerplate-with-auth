@@ -15,3 +15,4 @@ export * from './ui/sonner.jsx';
 export * from './Loader';
 export * from './Header';
 export * from './Footer';
+export * from './FormInput.jsx';
