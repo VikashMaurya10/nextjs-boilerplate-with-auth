@@ -223,7 +223,8 @@ export default async function ClientComponent() {
 - ``ESLint @8``: Linting tool for identifying and reporting on patterns in JavaScript.
 - ``Prettier @3.3.3``: Opinionated code formatter.
 - ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
-- ``Auth.js @5.0.0-beta.21``: React component library that offers a set of pre-built, customizable components for building modern web apps.
+- ``Auth.js @5.0.0-beta.21``: An open-source authentication library for JavaScript applications.
+- ``React Icons @5.3.0``: Include popular icons in the project.
 
 ## Contributing
 Pull requests (PRs) are welcome.
@@ -241,4 +242,5 @@ Pull requests (PRs) are welcome.
 - [Shadcn](https://ui.shadcn.com/docs)
 - [Prettier](https://prettier.io/)
 - [Auth v5](https://authjs.dev/getting-started/migrating-to-v5)
+- [React icons](https://react-icons.github.io/react-icons/)
 - [Figma](https://www.figma.com/)
