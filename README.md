@@ -225,6 +225,9 @@ export default async function ClientComponent() {
 - ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
 - ``Auth.js @5.0.0-beta.21``: React component library that offers a set of pre-built, customizable components for building modern web apps.
 
+> [!WARNING]
+> Avoid installing any npm packages unless you've consulted with the team lead.
+
 ## Contributing
 Pull requests (PRs) are welcome.
 - Create a branch with your name from dev branch.
