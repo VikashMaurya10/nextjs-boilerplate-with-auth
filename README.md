@@ -226,6 +226,9 @@ export default async function ClientComponent() {
 - ``Auth.js @5.0.0-beta.21``: An open-source authentication library for JavaScript applications.
 - ``React Icons @5.3.0``: Include popular icons in the project.
 
+> [!WARNING]
+> Avoid installing any npm packages unless you've consulted with the team lead.
+
 ## Contributing
 Pull requests (PRs) are welcome.
 - Create a branch with your name from dev branch.
@@ -244,3 +247,4 @@ Pull requests (PRs) are welcome.
 - [Auth v5](https://authjs.dev/getting-started/migrating-to-v5)
 - [React icons](https://react-icons.github.io/react-icons/)
 - [Figma](https://www.figma.com/)
+
