@@ -4,7 +4,6 @@
  */
 
 // Shadcn components
-export { toast } from 'sonner';
 export * from './ui/button.jsx';
 export * from './ui/form.jsx';
 export * from './ui/input.jsx';
@@ -16,3 +15,4 @@ export * from './Loader';
 export * from './Header';
 export * from './Footer';
 export * from './FormInput.jsx';
+export * from './Swiper';

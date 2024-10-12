@@ -1,4 +1,4 @@
-# Next js 14.2.13 Bolierplate with Auth V5@beta
+# Next js 14.2.13 Boilerplate with Auth V5@beta
 
 ## Getting Started
 
@@ -55,6 +55,17 @@ bun run deepclean
 ```bash
 http://localhost:3000
 ```
+
+### Install new shadcn component in app:
+```bash
+
+# Exmaple:
+
+npx shadcn@latest add dialog
+# or
+bun x --bun shadcn@latest add dialog
+```
+
 
 
 > [!IMPORTANT] 
@@ -247,4 +258,3 @@ Pull requests (PRs) are welcome.
 - [Auth v5](https://authjs.dev/getting-started/migrating-to-v5)
 - [React icons](https://react-icons.github.io/react-icons/)
 - [Figma](https://www.figma.com/)
-

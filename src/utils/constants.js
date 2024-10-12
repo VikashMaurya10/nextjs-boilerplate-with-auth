@@ -11,5 +11,8 @@ export const PROTECTED_ROUTE_STARTWITH = '/dashboard';
 // Public paths for application
 export const PUBLIC_ROUTES = ['/login', '/signup'];
 
-// Revalidate time(ms) each fetch request
-export const REVALIDATE_TIME = 3000;
+/**
+ * Revalidate time(s) each fetch request
+ * Set default revalidate at every hour
+ */
+export const REVALIDATE_TIME = 60 * 60;

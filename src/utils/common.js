@@ -1,4 +1,4 @@
-import { toast } from "@/components";
+import { toast } from "sonner";
 
 /**
  * Handles the API response
@@ -40,4 +40,21 @@ export const responseHandler = async (api_call, toast_success, toast_loading = '
     toast.error('Error 500 : ' + response?.message, { id: toastId });
   else toast.error('Error : Something went wrong. Please contact admin.', { id: toastId });
   return null;
+};
+
+/**
+ * Genearte random string along with current length
+ * @param {Number} length
+ * @returns {string}
+ */
+export const generateString = (length) => {
+  var uniStr = "";
+  const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  let i = 0;
+  while (i <= length) {
+    let num = Math.floor(Math.random() * 62);
+    uniStr += str.slice(num - 1, num);
+    i++;
+  }
+  return uniStr;
 };
