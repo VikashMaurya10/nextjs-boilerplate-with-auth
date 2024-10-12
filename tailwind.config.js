@@ -10,11 +10,34 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
-    extend: {},
-    fontFamily: {
-      geistMono: ['var(--font-geist-mono)', 'system-ui', 'Open Sans', 'sans-serif'], // default font
-      geistSans: ['var(--font-geist-sans)', 'system-ui', 'Open Sans', 'sans-serif']
-    }
+  	extend: {
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		}
+  	},
+  	fontFamily: {
+  		geistMono: ['var(--font-geist-mono)', 'system-ui', 'Open Sans', 'sans-serif'],
+  		geistSans: ['var(--font-geist-sans)', 'system-ui', 'Open Sans', 'sans-serif']
+  	}
   },
   plugins: [
     require('tailwindcss-animate'),

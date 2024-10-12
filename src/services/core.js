@@ -37,9 +37,7 @@ export async function fetchAPI(endpoint, options = {}) {
     headers = {},
     body = null,
     cache = 'default',
-    next = {
-      revalidate: REVALIDATE_TIME
-    },
+    next,
     timeoutMs = 5000
   } = options;
 
@@ -63,7 +61,7 @@ export async function fetchAPI(endpoint, options = {}) {
         headers: fetchHeaders,
         body: body ? JSON.stringify(body) : null,
         cache,
-        next: { next }
+        next: { revalidate: REVALIDATE_TIME, ...next }
       }),
       timeout(timeoutMs)
     ]);

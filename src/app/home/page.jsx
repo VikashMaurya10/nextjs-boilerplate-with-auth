@@ -17,7 +17,7 @@ export const metadata = {
 const Page = async () => {
   const session = await auth();
 
-  await delay(2000);
+  await delay(300);
 
   return (
     <>
