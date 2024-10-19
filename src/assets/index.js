@@ -1,12 +1,10 @@
 /**
  * Export all assets from index so that it can be imported from @/assets directly
  */
-
-//-------------- JSON --------------//
-
-export { default as USERS } from './jsons/USER.json';
-
 //-------------- Images --------------//
+export { default as Vite } from './images/vite.svg';
+export { default as Fallback } from './images/fallback.jpg';
+
 
 //-------------- React Icons --------------//
 export { LuLoader2 as LoaderIcon } from 'react-icons/lu';

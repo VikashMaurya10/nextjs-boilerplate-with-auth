@@ -45,20 +45,20 @@ export async function fetchAPI(endpoint, options = {}) {
   const url = `${baseUrl}${endpoint}`;
 
   // Construct headers with optional Authorization token
-  const fetchHeaders = {
+  const Headers = {
     'Content-Type': 'application/json',
     ...headers
   };
 
-  if (headers.token) {
-    fetchHeaders.Authorization = `Bearer ${headers.token}`;
+  if (headers?.token) {
+    Headers.Authorization = `Bearer ${headers.token}`;
   }
 
   try {
     const response = await Promise.race([
       fetch(url, {
         method,
-        headers: fetchHeaders,
+        headers: Headers,
         body: body ? JSON.stringify(body) : null,
         cache,
         next: { revalidate: REVALIDATE_TIME, ...next }

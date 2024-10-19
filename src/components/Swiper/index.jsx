@@ -1,9 +1,10 @@
 'use client';
+
 import { ForwardArrowIcon, LeftArrowIcon, RightArrowIcon } from '@/assets';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
 import { forwardRef } from 'react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination, Parallax } from 'swiper/modules';
 import * as SwiperReact from 'swiper/react';
 
 import 'swiper/css';
@@ -43,43 +44,44 @@ const Swiper = forwardRef(
 
     return (
       <div ref={ref} className={cn(carouselVariants({ variant }), wrapperCss)}>
-        <button
-          className={cn(
-            `p${key} aspect-square p-1.5`,
-            variant == 'secondary' && 'absolute left-0 top-1/2 z-[2] -translate-y-1/2',
-            leftBtnCss
-          )}
-        >
-          {icon === 'default' && <LeftArrowIcon className={cn('text-sm', iconCss)} />}
-          {icon === 'secondary' && <ForwardArrowIcon className={cn('rotate-180', iconCss)} />}
-        </button>
-        <SwiperReact.Swiper
+        {(swiperOptions?.navigation ?? true) && (
+          <button
+            className={cn(
+              `p${key} aspect-square p-1.5`,
+              variant == 'secondary' && 'absolute left-0 top-1/2 z-[2] -translate-y-1/2',
+              leftBtnCss
+            )}
+          >
+            {icon === 'default' && <LeftArrowIcon className={cn('text-sm', iconCss)} />}
+            {icon === 'secondary' && <ForwardArrowIcon className={cn('rotate-180', iconCss)} />}
+          </button>
+        )}
+
+        <Swiper
           spaceBetween={0}
           loop={true}
           navigation={{
             prevEl: `.p${key}`,
             nextEl: `.n${key}`
           }}
-          pagination={{
-            // dynamicBullets: true,
-            clickable: true
-          }}
-          modules={[Navigation, Autoplay, Pagination]}
+          modules={[Navigation, Autoplay, Pagination, Parallax]}
           className={cn('h-full w-full', className)}
           {...swiperOptions}
         >
           {children}
-        </SwiperReact.Swiper>
-        <button
-          className={cn(
-            `n${key} aspect-square p-1.5`,
-            variant == 'secondary' && 'absolute right-0 top-1/2 z-[2] -translate-y-1/2',
-            rightBtnCss
-          )}
-        >
-          {icon === 'default' && <RightArrowIcon className={cn('text-sm', iconCss)} />}
-          {icon === 'secondary' && <ForwardArrowIcon className={cn('', iconCss)} />}
-        </button>
+        </Swiper>
+        {(swiperOptions?.navigation ?? true) && (
+          <button
+            className={cn(
+              `n${key} aspect-square p-1.5`,
+              variant == 'secondary' && 'absolute right-0 top-1/2 z-[2] -translate-y-1/2',
+              rightBtnCss
+            )}
+          >
+            {icon === 'default' && <RightArrowIcon className={cn('text-sm', iconCss)} />}
+            {icon === 'secondary' && <ForwardArrowIcon className={cn('', iconCss)} />}
+          </button>
+        )}
       </div>
     );
   }

@@ -1,6 +1,6 @@
 /**
  * Create all page here.
- * And export them from index so that it can be imported from @/page directly
+ * And export them from index so that it can be imported from @/pages directly
  */
 
 export * from './HomePage';

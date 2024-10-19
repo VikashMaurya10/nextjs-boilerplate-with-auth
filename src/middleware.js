@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { auth } from './config';
+
 import { DEFAULT_REDIRECTION, PROTECTED_ROUTE_STARTWITH, PUBLIC_ROUTES } from './utils';
 
 export default auth((req) => {

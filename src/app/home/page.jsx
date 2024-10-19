@@ -2,9 +2,9 @@
  * Home page for application
  * Route name "/"
  */
+import { ImageComponent } from '@/components';
 import { auth } from '@/config';
 import { HomePage } from '@/page';
-import { delay } from '@/services/core';
 
 /**
  * Metadata details
@@ -17,11 +17,27 @@ export const metadata = {
 const Page = async () => {
   const session = await auth();
 
-  await delay(300);
-
   return (
     <>
       <pre>{JSON.stringify(session, null, 2)}</pre>
+
+      <div className="grid grid-cols-3 sm:mt-4">
+        <ImageComponent
+          src="https://images.unsplash.com/photo-1621961458348-f013d219b50c"
+          height={400}
+          width={500}
+        />
+        <ImageComponent
+          src="https://images.unsplash.com/photo-1621961458348-f013d219b50c"
+          height={400}
+          width={500}
+        />
+        <ImageComponent
+          src="https://images.unsplash.com/photo-1621961458348-f013d219b50c"
+          height={400}
+          width={500}
+        />
+      </div>
       <HomePage />
     </>
   );
