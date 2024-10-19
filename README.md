@@ -1,14 +1,16 @@
-# School-wischool-frontend
+# Next js 14.2.13 Boilerplate with Auth V5@beta
 
 ## Getting Started
 
 ### Clone the repositroy:
 ```bash
-# repo url here
+git clone https://github.com/VikashMaurya10/nextjs-boilerplate-with-auth .
+# or
+git clone git@github.com:VikashMaurya10/nextjs-boilerplate-with-auth.git .
 ```
 
 ### Install all dependencies:
-```basha
+```bash
 bun i
 # or
 npm i
