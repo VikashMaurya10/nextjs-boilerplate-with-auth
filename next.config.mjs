@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   async rewrites() {
     return [
@@ -8,14 +9,13 @@ const nextConfig = {
       }
     ];
   },
-
-  /**
-   * Include here you domain name for working auth js in production
-   */
-  experimental: {
-    serverActions: {
-      allowedOrigins: [''] //example.com
-    }
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com'
+      }
+    ]
   }
 };
 

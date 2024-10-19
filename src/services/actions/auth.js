@@ -3,7 +3,7 @@
  */
 'use server';
 
-import { USERS } from '@/assets';
+import { USERS } from '@/assets/data';
 import { signIn } from '@/config';
 import { delay } from '@/services/core';
 
@@ -18,7 +18,7 @@ export const LoginUser = async (values) => {
    * Implement here own logic for user login.
    * i.e fetch user by email form api or database.
    */
-  const user = USERS.find(
+  const user = USERS?.find(
     (user) =>
       user.email?.toLowerCase() === values?.email?.toLowerCase() &&
       user.password === values.password

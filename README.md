@@ -93,25 +93,28 @@ src
 ├── ...
 ├── app
 │   ├── fonts
+│   │     ├── static
+│   │     ├── index
 │   ├── favicon
+│   ├── api
 │   ├── layout
 │   ├── loading
 │   ├── not-found
-│   ├── page
 │   ├── other Routes
 ├── assets
 │   ├── images
-│   ├── json
+│   ├── data
 │   ├── index
 ├── components
 │   ├── ui
 │   ├── index
 ├── config
+│   ├── index
 ├── hooks
 │   ├── index
 ├── lib
-│   ├── utils
 │   ├── Wrapper
+│   ├── utils
 ├── page
 │   ├── index
 │   ├── other
@@ -125,6 +128,7 @@ src
 │   ├── common
 │   ├── constants
 │   ├── index
+├── zod-schema
 ├── middleware
 │
 :
@@ -228,7 +232,7 @@ export default async function ClientComponent() {
 > Break large page UI into small section and components.
 
 ### Used Technologies:
-- ``Next.js @14.2.13``: Flexible React framework.
+- ``Next.js @14.2.15``: Flexible React framework.
 - ``React @18``: Library for building user interfaces.
 - ``Tailwind CSS @3.4.1``: Utility-first CSS framework.
 - ``ESLint @8``: Linting tool for identifying and reporting on patterns in JavaScript.

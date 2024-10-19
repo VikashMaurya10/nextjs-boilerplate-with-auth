@@ -16,3 +16,4 @@ export * from './Header';
 export * from './Footer';
 export * from './FormInput.jsx';
 export * from './Swiper';
+export * from './ImageComponent.jsx';

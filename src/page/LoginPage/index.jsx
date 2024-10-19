@@ -14,8 +14,8 @@ import {
   FormMessage
 } from '@/components';
 import { useErrorLog } from '@/hooks';
-import { handleCredentialLogin } from '@/services/apis/auth';
-import { responseHandler } from '@/utils';
+import { handleCredentialLogin } from '@/services/actions/auth';
+import { responseHandler } from '@/utils/common';
 import { loginFormSchema } from '@/zod-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 

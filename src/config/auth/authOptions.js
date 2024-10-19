@@ -2,7 +2,7 @@
  * Auth option for User authentication
  */
 
-import { LoginUser } from '@/services/apis/auth';
+import { LoginUser } from '@/services/actions/auth';
 import { CredentialsSignin } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 

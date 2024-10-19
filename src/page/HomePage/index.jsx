@@ -3,13 +3,12 @@
  */
 'use client';
 
-import { Swiper, SwiperSlide } from '@/components';
+import { ImageComponent } from '@/components';
 import { useErrorLog } from '@/hooks';
-import Image from 'next/image';
 
 export const HomePage = () => {
   //-------------- State & Variables --------------//
-  const handleError = useErrorLog('page/HomePage');
+  const handleError = useErrorLog('pages/HomePage');
 
   //-------------- Use Effects --------------//
 
@@ -19,26 +18,7 @@ export const HomePage = () => {
     <>
       <section>
         Home page
-        <Swiper
-          id={'xxc'}
-          variant="secondary"
-          swiperOptions={{
-            slidesPerView: 3
-          }}
-        >
-          <SwiperSlide className="b">
-            <Image src={'/vite.svg'} width={300} height={300} className="h-auto" alt="sd" />
-          </SwiperSlide>
-          <SwiperSlide className="b">
-            <Image src={'/vite.svg'} width={300} height={300} className="h-auto" alt="sd" />
-          </SwiperSlide>
-          <SwiperSlide className="b">
-            <Image src={'/vite.svg'} width={300} height={300} className="h-auto" alt="sd" />
-          </SwiperSlide>
-          <SwiperSlide className="b">
-            <Image src={'/vite.svg'} width={300} height={300} className="h-auto" alt="sd" />
-          </SwiperSlide>
-        </Swiper>
+        <ImageComponent width={400} height={400} src="https://images.unsplash.com/photo-1621961458348-f013d219b50c" />
       </section>
     </>
   );

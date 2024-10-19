@@ -4,7 +4,6 @@
  */
 
 import { DashboardHomePage } from '@/page';
-import { delay } from '@/services/core';
 
 /**
  * Metadata details
@@ -15,7 +14,6 @@ export const metadata = {
 };
 
 const page = async () => {
-  await delay(1000);
   return (
     <>
       <DashboardHomePage />
