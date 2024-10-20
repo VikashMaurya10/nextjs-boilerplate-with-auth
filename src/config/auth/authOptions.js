@@ -7,6 +7,8 @@ import { CredentialsSignin } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 
 export const authConfig = {
+  trustHost: true,
+  // trustHostedDomain: true,
   session: {
     strategy: 'jwt'
   },

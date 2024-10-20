@@ -1,11 +1,11 @@
 // import font
-import Wrapper from '@/lib/Wrapper';
 import { geistMono, geistSans } from './fonts';
 
 // import styles
 import '@/styles/index.css';
 
 // Other imports
+import Wrapper from '@/lib/Wrapper';
 
 // Export metadata template for the app
 export const metadata = {
@@ -20,7 +20,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-geistMono bg-neutral-400 text-black antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} bg-neutral-400 font-geistMono text-black antialiased`}
       >
         <Wrapper>{children}</Wrapper>
       </body>

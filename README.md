@@ -66,8 +66,6 @@ npx shadcn@latest add dialog
 bun x --bun shadcn@latest add dialog
 ```
 
-
-
 > [!IMPORTANT] 
 > Please follow predefined Code structure 
 
@@ -81,6 +79,7 @@ bun x --bun shadcn@latest add dialog
 - **hooks** folder contains all custom hooks.
 - **lib** folder contain all custom or 3rd party library.
 - **page** folder contain all the web page UI component.
+- **redux** folder contain all global states.
 - **services** folder contain all API services and other 3rd party service.
 - **styles** folder contains global css and module css.
 - **util** folder contain constants and common functions.
@@ -118,6 +117,10 @@ src
 ├── page
 │   ├── index
 │   ├── other
+├── redux
+│   ├── action
+│   ├── reducer
+│   ├── store
 ├── services
 │   ├── api
 │   ├── core
@@ -240,6 +243,8 @@ export default async function ClientComponent() {
 - ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
 - ``Auth.js @5.0.0-beta.21``: An open-source authentication library for JavaScript applications.
 - ``React Icons @5.3.0``: Include popular icons in the project.
+- ``react-redux @9.1.2``: React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.
+- ``@reduxjs/toolkit @2.3.0``: The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help.
 
 > [!WARNING]
 > Avoid installing any npm packages unless you've consulted with the team lead.
@@ -260,5 +265,7 @@ Pull requests (PRs) are welcome.
 - [Shadcn](https://ui.shadcn.com/docs)
 - [Prettier](https://prettier.io/)
 - [Auth v5](https://authjs.dev/getting-started/migrating-to-v5)
+- [React redux](https://react-redux.js.org/introduction/getting-started)
+- [Redux toolkit](https://redux-toolkit.js.org/introduction/getting-started)
 - [React icons](https://react-icons.github.io/react-icons/)
 - [Figma](https://www.figma.com/)
