@@ -3,4 +3,5 @@
  *
  */
 
-export * from './useErrorLog.jsx';
+export * from './useErrorLog';
+export * from './redux';

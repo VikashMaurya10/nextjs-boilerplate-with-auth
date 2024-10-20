@@ -17,6 +17,14 @@ const nextConfig = {
       }
     ]
   }
+  /**
+   * Include here you domain name for working auth js in production
+   */
+  // experimental: {
+  //   serverActions: {
+  //     allowedOrigins: [''] //example.com
+  //   }
+  // }
 };
 
 export default nextConfig;
