@@ -2,6 +2,9 @@
 
 ## Getting Started
 
+### Get preview:
+[https://nextjs-boilerplate-with-auth.vercel.app](https://nextjs-boilerplate-with-auth.vercel.app/)
+
 ### Clone the repositroy:
 ```bash
 git clone https://github.com/VikashMaurya10/nextjs-boilerplate-with-auth .
