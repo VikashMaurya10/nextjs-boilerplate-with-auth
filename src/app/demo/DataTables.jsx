@@ -9,9 +9,9 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  toast
 } from '@/components';
 import { DataTableColumnHeader } from '@/components/data-table/DataTableColumnHeader';
+import { toast } from 'sonner';
 
 export const DataTables = () => {
   const CategoryCols = [
