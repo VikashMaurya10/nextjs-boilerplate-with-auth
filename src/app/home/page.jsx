@@ -3,7 +3,7 @@
  * Route name "/"
  */
 import { ImageComponent } from '@/components';
-import { auth } from '@/config';
+import { auth, signOut } from '@/config';
 import { HomePage } from '@/page';
 
 /**

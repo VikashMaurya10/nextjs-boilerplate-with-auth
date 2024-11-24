@@ -19,7 +19,7 @@ export const responseHandler = async (api_call, toast_success, toast_loading = '
       response.toastId = toastId;
       toast.error(response?.message, { id: toastId });
     } else {
-      if (toast_success) toast.success(toast_success, { id: toastId });
+      if (toast_success) toast  .success(toast_success, { id: toastId });
     }
   } catch (e) {
     response = e;
@@ -48,8 +48,8 @@ export const responseHandler = async (api_call, toast_success, toast_loading = '
  * @returns {string}
  */
 export const generateString = (length) => {
-  var uniStr = "";
-  const str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+  var uniStr = '';
+  const str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   let i = 0;
   while (i <= length) {
     let num = Math.floor(Math.random() * 62);

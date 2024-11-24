@@ -35,7 +35,8 @@ const Swiper = forwardRef(
       icon = 'default',
       leftBtnCss,
       rightBtnCss,
-      iconCss
+      iconCss,
+      buttonCss
     },
     ref
   ) => {
@@ -49,15 +50,15 @@ const Swiper = forwardRef(
             className={cn(
               `p${key} aspect-square p-1.5`,
               variant == 'secondary' && 'absolute left-0 top-1/2 z-[2] -translate-y-1/2',
-              leftBtnCss
+              leftBtnCss,
+              buttonCss
             )}
           >
             {icon === 'default' && <LeftArrowIcon className={cn('text-sm', iconCss)} />}
             {icon === 'secondary' && <ForwardArrowIcon className={cn('rotate-180', iconCss)} />}
           </button>
         )}
-
-        <Swiper
+        <SwiperReact.Swiper
           spaceBetween={0}
           loop={true}
           navigation={{
@@ -69,13 +70,14 @@ const Swiper = forwardRef(
           {...swiperOptions}
         >
           {children}
-        </Swiper>
+        </SwiperReact.Swiper>
         {(swiperOptions?.navigation ?? true) && (
           <button
             className={cn(
               `n${key} aspect-square p-1.5`,
               variant == 'secondary' && 'absolute right-0 top-1/2 z-[2] -translate-y-1/2',
-              rightBtnCss
+              rightBtnCss,
+              buttonCss
             )}
           >
             {icon === 'default' && <RightArrowIcon className={cn('text-sm', iconCss)} />}

@@ -24,7 +24,7 @@ const Wrapper = ({ children }) => {
   return (
     <Provider store={storeRef.current}>
       <Header />
-      <main className="min-h-[80vh] b">
+      <main className="min-h-[80vh]">
         {children}
         <Toaster {...ToastConfig} />
       </main>

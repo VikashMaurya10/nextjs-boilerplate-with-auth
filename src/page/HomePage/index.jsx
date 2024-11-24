@@ -18,7 +18,6 @@ export const HomePage = () => {
     <>
       <section>
         Home page
-        <ImageComponent width={400} height={400} src="https://images.unsplash.com/photo-1621961458348-f013d219b50c" />
       </section>
     </>
   );
