@@ -4,6 +4,7 @@
 
 'use client';
 
+import { handleCredentialLogin } from '@/actions';
 import {
   Button,
   Form,
@@ -14,14 +15,13 @@ import {
   FormMessage
 } from '@/components';
 import { useErrorLog } from '@/hooks';
-import { handleCredentialLogin } from '@/services/actions/auth';
-import { responseHandler } from '@/utils/common';
+import { responseHandler } from '@/lib';
 import { loginFormSchema } from '@/zod-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { useForm } from 'react-hook-form';
 
-export const LoginPage = () => {
+export const LoginForm = () => {
   //-------------- State & Variables --------------//
   const handleError = useErrorLog('page/Login');
 
@@ -29,8 +29,8 @@ export const LoginPage = () => {
   const form = useForm({
     resolver: zodResolver(loginFormSchema),
     defaultValues: {
-      email: 'vikash@gmail.com',
-      password: 'vikash@1234'
+      email: 'johndue@gmail.com',
+      password: 'test@1234'
     }
   });
 

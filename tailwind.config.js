@@ -1,20 +1,19 @@
 import plugin from 'tailwindcss/plugin';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+const config = {
   darkMode: ['class'],
   content: [
-    './src/page/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
     extend: {
-      fontFamily: {
-        geistMono: ['var(--font-geist-mono)', 'system-ui', 'Open Sans', 'sans-serif'],
-        geistSans: ['var(--font-geist-sans)', 'system-ui', 'Open Sans', 'sans-serif']
-      },
-      colors: {}
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)'
+      }
     }
   },
   plugins: [
@@ -24,6 +23,7 @@ module.exports = {
         '.b': {
           border: '1px solid red'
         },
+
         // set max screen width
         '.setWidth': {
           width: '90%',
@@ -32,6 +32,7 @@ module.exports = {
             width: '95%'
           }
         },
+
         // remove scrollbar
         '.no-scrollbar': {
           '&::-webkit-scrollbar': {
@@ -51,6 +52,7 @@ module.exports = {
             background: '#a8a4ff'
           }
         },
+
         // hide spin btn from input type number
         '.no-spin-btn': {
           '&::-webkit-inner-spin-button': {
@@ -73,3 +75,5 @@ module.exports = {
     })
   ]
 };
+
+export default config;

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from './config';
 
-import { DEFAULT_REDIRECTION, PROTECTED_ROUTE_STARTWITH, PUBLIC_ROUTES } from './utils';
+import { DEFAULT_REDIRECTION, PROTECTED_ROUTE_STARTWITH, PUBLIC_ROUTES } from '@/config';
 
 export default auth((req) => {
   const { nextUrl } = req;
@@ -20,7 +20,7 @@ export default auth((req) => {
    * Redirect to login if the route is protected and the user is not authenticated
    */
   if (isProtectedRoute && !isAuthenticated) {
-    const loginUrl = new URL(`/login?next=${pathname}`, req.url);
+    const loginUrl = new URL(`/login?redirect=${pathname}`, req.url);
     return NextResponse.redirect(loginUrl);
   }
 
@@ -30,7 +30,7 @@ export default auth((req) => {
    * ALSO You can redirect users as per their role
    */
   if (isAuthenticated && isPublicRoute) {
-    const nextPath = nextUrl.searchParams.get('next') || DEFAULT_REDIRECTION;
+    const nextPath = nextUrl.searchParams.get('redirect') || DEFAULT_REDIRECTION;
     return NextResponse.redirect(new URL(nextPath, req.url));
   }
 

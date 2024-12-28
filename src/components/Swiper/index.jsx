@@ -3,7 +3,7 @@
 import { ForwardArrowIcon, LeftArrowIcon, RightArrowIcon } from '@/assets';
 import { cn } from '@/lib/utils';
 import { cva } from 'class-variance-authority';
-import { forwardRef } from 'react';
+import { forwardRef, useState } from 'react';
 import { Autoplay, Navigation, Pagination, Parallax } from 'swiper/modules';
 import * as SwiperReact from 'swiper/react';
 
@@ -26,7 +26,6 @@ const carouselVariants = cva('', {
 const Swiper = forwardRef(
   (
     {
-      id,
       children,
       swiperOptions,
       wrapperCss,
@@ -41,44 +40,40 @@ const Swiper = forwardRef(
     ref
   ) => {
     //-------------- State & Variables --------------//
-    const key = id;
+    const [swiperRef, setSwiperRef] = useState(null);
+    const navigationBtnCss = cn(
+      'aspect-square p-1.5 bg-white rounded-full',
+      variant == 'secondary' && 'absolute top-1/2 z-[2] -translate-y-1/2',
+      buttonCss
+    );
 
     return (
       <div ref={ref} className={cn(carouselVariants({ variant }), wrapperCss)}>
         {(swiperOptions?.navigation ?? true) && (
           <button
-            className={cn(
-              `p${key} aspect-square p-1.5`,
-              variant == 'secondary' && 'absolute left-0 top-1/2 z-[2] -translate-y-1/2',
-              leftBtnCss,
-              buttonCss
-            )}
+            className={cn(navigationBtnCss, leftBtnCss, variant == 'secondary' && 'left-2')}
+            onClick={() => swiperRef?.slidePrev()}
           >
             {icon === 'default' && <LeftArrowIcon className={cn('text-sm', iconCss)} />}
             {icon === 'secondary' && <ForwardArrowIcon className={cn('rotate-180', iconCss)} />}
           </button>
         )}
         <SwiperReact.Swiper
-          spaceBetween={0}
+          onSwiper={setSwiperRef}
+          spaceBetween={14}
           loop={true}
-          navigation={{
-            prevEl: `.p${key}`,
-            nextEl: `.n${key}`
-          }}
           modules={[Navigation, Autoplay, Pagination, Parallax]}
           className={cn('h-full w-full', className)}
           {...swiperOptions}
+          // disable default navigation buttons
+          navigation={false}
         >
           {children}
         </SwiperReact.Swiper>
         {(swiperOptions?.navigation ?? true) && (
           <button
-            className={cn(
-              `n${key} aspect-square p-1.5`,
-              variant == 'secondary' && 'absolute right-0 top-1/2 z-[2] -translate-y-1/2',
-              rightBtnCss,
-              buttonCss
-            )}
+            className={cn(navigationBtnCss, rightBtnCss, variant == 'secondary' && 'right-2')}
+            onClick={() => swiperRef?.slideNext()}
           >
             {icon === 'default' && <RightArrowIcon className={cn('text-sm', iconCss)} />}
             {icon === 'secondary' && <ForwardArrowIcon className={cn('', iconCss)} />}

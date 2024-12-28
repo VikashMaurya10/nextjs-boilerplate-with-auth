@@ -1,5 +1,5 @@
 /**
- * Loading screen for Demo page
+ * Loading screen for Signup page
  */
 import { Loader } from '@/components';
 

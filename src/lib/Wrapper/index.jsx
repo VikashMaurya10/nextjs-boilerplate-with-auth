@@ -6,30 +6,22 @@
  */
 import { Footer, Header, Toaster } from '@/components';
 import { ToastConfig } from '@/config';
-import { makeStore } from '@/redux/store';
-import { useRef } from 'react';
-import { Provider } from 'react-redux';
+import { LocalStorageProvider } from '@/hooks';
 
 const Wrapper = ({ children }) => {
   //-------------- State & Variables --------------//
-  const storeRef = useRef(null);
-  if (!storeRef.current) {
-    storeRef.current = makeStore();
-  }
 
   //-------------- Use Effects --------------//
 
   //-------------- Other Methods --------------//
 
   return (
-    <Provider store={storeRef.current}>
+    <LocalStorageProvider>
       <Header />
-      <main className="min-h-[80vh]">
-        {children}
-        <Toaster {...ToastConfig} />
-      </main>
+      <main className="min-h-[80vh]">{children}</main>
       <Footer />
-    </Provider>
+      <Toaster {...ToastConfig} />
+    </LocalStorageProvider>
   );
 };
 

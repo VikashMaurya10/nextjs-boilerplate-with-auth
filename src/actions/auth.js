@@ -1,11 +1,8 @@
-/**
- * Server actions for user Auth
- */
 'use server';
 
 import { USERS } from '@/assets/data';
 import { signIn } from '@/config';
-import { delay } from '@/services/core';
+import { delay } from '@/lib';
 
 /**
  * Login user by credentials

@@ -3,7 +3,8 @@
  * Route name "/dashboard"
  */
 
-import { DashboardHomePage } from '@/page';
+import { auth } from '@/config';
+import Index from '.';
 
 /**
  * Metadata details
@@ -13,12 +14,15 @@ export const metadata = {
   description: 'Dashboard description'
 };
 
-const page = async () => {
+const DashboardPage = async () => {
+  const session = await auth();
+
   return (
     <>
-      <DashboardHomePage />
+      <pre>{JSON.stringify(session, null, 2)}</pre>
+      <Index />
     </>
   );
 };
 
-export default page;
+export default DashboardPage;

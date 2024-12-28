@@ -8,7 +8,7 @@
  */
 export const ToastConfig = {
   position: 'bottom-center',
-  offset: '32px',
+  offset: '16px',
   richColors: true,
   toastOptions: {
     // Define default options
@@ -26,3 +26,4 @@ export const ToastConfig = {
 };
 
 export * from './auth';
+export * from './constants';
