@@ -8,12 +8,12 @@ import { Vite } from '.';
 // Users
 export const USERS = [
   {
-    first_name: 'vikash',
-    last_name: 'Maurya',
+    first_name: 'John',
+    last_name: 'Due',
     username: 'vikashmaurya',
-    email: 'vikash@gmail.com',
-    phone_number: '1234567890',
-    password: 'vikash@1234',
+    email: 'johndue@gmail.com',
+    phone_number: '9112345678',
+    password: 'test@1234',
     image: null,
     role: 'admin'
   },
@@ -21,7 +21,7 @@ export const USERS = [
     first_name: 'Test',
     last_name: 'bro',
     username: 'Test12546',
-    email: 'test@gmail.com',
+    email: 'testbro@gmail.com',
     phone_number: '0987654321',
     password: 'test@1234',
     image: null,
@@ -31,6 +31,7 @@ export const USERS = [
 
 // Demo images
 export const IMAGES = [
+  null,
   'https://images.unsplash.com/photo-1725113160838-9efa2a25aa0b',
   'https://images.unsplash.com/photo-1727525892435-a30151200613',
   'https://images.unsplash.com/photo-1729006076664-5a1fd4efcbb1',

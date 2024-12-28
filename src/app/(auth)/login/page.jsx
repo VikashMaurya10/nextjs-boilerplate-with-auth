@@ -3,7 +3,7 @@
  * Route name "/login"
  */
 
-import { LoginPage } from '@/page';
+import { LoginForm } from './LoginForm';
 
 /**
  * Metadata details
@@ -13,12 +13,8 @@ export const metadata = {
   description: 'Login page for Auth'
 };
 
-const Page = () => {
-  return (
-    <>
-      <LoginPage />
-    </>
-  );
+const LoginPage = () => {
+  return <LoginForm />;
 };
 
-export default Page;
+export default LoginPage;

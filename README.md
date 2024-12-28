@@ -1,17 +1,17 @@
-# Next js 14.2.13 Boilerplate with Auth V5@beta
+# Next js 15 Boilerplate with Auth js V5@beta
 
 ## Getting Started
 
 ### Get preview:
 [https://nextjs-boilerplate-with-auth.vercel.app](https://nextjs-boilerplate-with-auth.vercel.app/)
 
-### Clone the repositroy:
+### Clone the repository:
 ```bash
 git clone https://github.com/VikashMaurya10/nextjs-boilerplate-with-auth .
 # or
 git clone git@github.com:VikashMaurya10/nextjs-boilerplate-with-auth.git .
-```
 
+```
 ### Install all dependencies:
 ```bash
 bun i
@@ -24,6 +24,11 @@ npm i
 npx auth secret
 # or
 bunx auth secret
+```
+### Setup environment variable
+
+```js
+// In the root folder of the project, create a .env.local file and paste the content of example.env into it.
 ```
 
 ### Start the development server:
@@ -40,18 +45,11 @@ npm run build
 bun run build
 ```
 
-### Format the code using Prettier:
-```bash
-npm run format
-# or
-bun run format
-```
-
 ### Perform a deep clean (remove node_modules and .next dir):
 ```bash
-npm run deepclean
+npm run cls #or cls:all
 # or
-bun run deepclean
+bun run cls #or cls:all
 ```
 
 ### Checkout development or production server:
@@ -62,7 +60,7 @@ http://localhost:3000
 ### Install new shadcn component in app:
 ```bash
 
-# Exmaple:
+# Example:
 
 npx shadcn@latest add dialog
 # or
@@ -73,30 +71,26 @@ bun x --bun shadcn@latest add dialog
 > Please follow predefined Code structure 
 
 ### Folder Structure:
-- Add all image, assets, json files to **assets** folder.
-- **components** folder contains all re-usable components.
-- Add non-reusable components to that specific folder. i.e - `page/Login/components`.
-- Each component or page folder should be in camelcase and starts with Capital letter.
+- **actions** Folder contains all server action.
+- **app** Folder contains all routes.
+- **assets** Folder contains all Add all image, assets, json files.
+- **components** folder contains all re-usable components. *`Add non-reusable components to that specific folder. i.e - Login/_components`*.
 - Export all re-usable components from index so that it can be imported with non-relative url.
-- **config** folder contains all third party lib config.
-- **hooks** folder contains all custom hooks.
-- **lib** folder contain all custom or 3rd party library.
-- **page** folder contain all the web page UI component.
-- **redux** folder contain all global states.
-- **services** folder contain all API services and other 3rd party service.
-- **styles** folder contains global css and module css.
-- **util** folder contain constants and common functions.
-- **zod-schema** folder contain zod schema for form validation.
+- **config** Folder contains all third party lib and application config.
+- **fonts** Folder contains all static and google fonts.
+- **hooks** Folder contains all custom hooks.
+- **lib** Folder contain all custom or 3rd party library, utility function.
+- **styles** Folder contains global css and module css.
+- **zod-schema** Folder contain all zod schema for form validation.
 
 
 ```
 src
 :
 ├── ...
+├── action
+│   ├── index
 ├── app
-│   ├── fonts
-│   │     ├── static
-│   │     ├── index
 │   ├── favicon
 │   ├── api
 │   ├── layout
@@ -111,30 +105,23 @@ src
 │   ├── ui
 │   ├── index
 ├── config
+│   ├── constants
+│   ├── index
+├── fonts
+│   ├── static
 │   ├── index
 ├── hooks
 │   ├── index
 ├── lib
+│   ├── Fetcher
 │   ├── Wrapper
 │   ├── utils
-├── page
 │   ├── index
-│   ├── other
-├── redux
-│   ├── action
-│   ├── reducer
-│   ├── store
-├── services
-│   ├── api
-│   ├── core
 ├── styles
 │   ├── index
 │   ├── global
-├── utils
-│   ├── common
-│   ├── constants
-│   ├── index
 ├── zod-schema
+│   ├── index
 ├── middleware
 │
 :
@@ -150,11 +137,12 @@ src
  */
 export const metadata = {
   title: 'Home',
-  description: 'Home page description'
+  description: 'Home page description',
+  ...others
 };
 
 ```
-- Any reusable constant and common function should go to **utils**
+- Any reusable constant and common function should go to **config** and **lib** accordingly.
 - Any global styles should go to global.css and any module based css goes to file like moduleName.css
 - Any module based css should have a container to isolate css code and prevent overwrite
 - All page should contain a description at top like :
@@ -190,7 +178,7 @@ export const metadata = {
 
 - Each component should use handleError hook :
 ```js
-const handleError = useErrorLog('page/login');
+const handleError = useErrorLog('login/index');
 ```
 
 - Each method should use try catch and pass catch error to handleError :
@@ -238,27 +226,31 @@ export default async function ClientComponent() {
 > Break large page UI into small section and components.
 
 ### Used Technologies:
-- ``Next.js @14.2.15``: Flexible React framework.
-- ``React @18``: Library for building user interfaces.
-- ``Tailwind CSS @3.4.1``: Utility-first CSS framework.
-- ``ESLint @8``: Linting tool for identifying and reporting on patterns in JavaScript.
-- ``Prettier @3.3.3``: Opinionated code formatter.
+- ``Next.js @15.1.2``: Flexible React framework.
+- ``React @19``: React is the javaScript library for web and native user interfaces.
+- ``Auth.js @5.0.0-beta.25``: An open-source authentication library for JavaScript applications.
 - ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
-- ``Auth.js @5.0.0-beta.21``: An open-source authentication library for JavaScript applications.
-- ``React Icons @5.3.0``: Include popular icons in the project.
-- ``react-redux @9.1.2``: React Redux is the official React UI bindings layer for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update state.
-- ``@reduxjs/toolkit @2.3.0``: The Redux Toolkit package is intended to be the standard way to write Redux logic. It was originally created to help.
+- ``React Hook Form @7.54.2``: Performant, flexible and extensible forms with easy-to-use validation.
+- ``zod @3.24.1``: Zod is a schema declaration and validation library.
+- ``swiper @11.1.15``: Swiper is the most modern free mobile touch slider with hardware accelerated transitions and amazing native behavior.
+- ``Tailwind CSS @3.4.1``: Utility-first CSS framework.
+- ``Tailwind Merge @3.4.1``: Merge the tailwind css util classes.
+- ``ESLint @9``: Linting tool for identifying and reporting on patterns in JavaScript.
+- ``Prettier @3.4.2``: Opinionated code formatter.
+- ``prettier plugin tailwindcss" @0.6.9``: Plugin that automatically sorts classes based on our recommended class order.
+- ``React Icons @5.4.0 and lucide-react @0.469.0``: Include popular icons in the project.
+- ``sharp @0.33.5``:  High performance Node.js image processing, the fastest module to resize JPEG, PNG, WebP, GIF, AVIF and TIFF images.
 
 > [!WARNING]
 > Avoid installing any npm packages unless you've consulted with the team lead.
 
 ## Contributing
 Pull requests (PRs) are welcome.
-- Create a branch with your name from dev branch.
-- Do changes in that branch.
-- Push changes to your branch and create PR to staging branch.
-- Get the PR reviewed for authenticity and merge it into staging.
-- Then finally merge all changes from staging to master to deploy in prod.
+- First, raise an issue on GitHub and create an associated branch.
+- Make the necessary changes in that branch.
+- Push changes to the associated branch and create a PR to the staging branch.
+- Get the PR reviewed for authenticity and merge it into the staging branch.
+- Finally, merge all changes from the staging branch to the master branch to deploy to production.
 
 ## Resources
 - [Next js](https://nextjs.org/docs)
@@ -268,7 +260,5 @@ Pull requests (PRs) are welcome.
 - [Shadcn](https://ui.shadcn.com/docs)
 - [Prettier](https://prettier.io/)
 - [Auth v5](https://authjs.dev/getting-started/migrating-to-v5)
-- [React redux](https://react-redux.js.org/introduction/getting-started)
-- [Redux toolkit](https://redux-toolkit.js.org/introduction/getting-started)
 - [React icons](https://react-icons.github.io/react-icons/)
 - [Figma](https://www.figma.com/)

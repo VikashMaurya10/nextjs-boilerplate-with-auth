@@ -4,4 +4,4 @@
  */
 
 export * from './useErrorLog';
-export * from './redux';
+export * from './useLocalStorage';

@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
+  logging: {
+    fetches: {
+      fullUrl: true,
+      hmrRefreshes: true
+    }
+  },
   async rewrites() {
     return [
       {
@@ -18,6 +23,10 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'plus.unsplash.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'swiperjs.com'
       }
     ]
   }
