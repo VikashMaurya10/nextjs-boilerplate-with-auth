@@ -1,7 +1,7 @@
 // import font
 import { APP_NAME, auth } from '@/config';
 import { geistMono, geistSans } from '@/fonts';
-import Wrapper from '@/lib/Wrapper';
+import Wrapper from '@/lib/wrapper';
 import { SessionProvider } from 'next-auth/react';
 
 // import styles

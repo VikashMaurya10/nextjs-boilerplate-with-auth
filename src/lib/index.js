@@ -3,6 +3,7 @@
  *
  */
 
-export * from './Wrapper';
+export * from './wrapper';
 export * from './utils';
-export * from './Fetcher';
+export * from './fetcher';
+export * from './local-storage';

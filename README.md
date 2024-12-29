@@ -57,11 +57,9 @@ bun run cls #or cls:all
 http://localhost:3000
 ```
 
-### Install new shadcn component in app:
+### Install new shadcn component in the application:
 ```bash
-
 # Example:
-
 npx shadcn@latest add dialog
 # or
 bun x --bun shadcn@latest add dialog
@@ -113,8 +111,8 @@ src
 ├── hooks
 │   ├── index
 ├── lib
-│   ├── Fetcher
-│   ├── Wrapper
+│   ├── fetcher
+│   ├── wrapper
 │   ├── utils
 │   ├── index
 ├── styles
@@ -213,12 +211,44 @@ export default async function Page() {
 // import useSession and signOut from next-auth/react
 import { signOut, useSession } from 'next-auth/react';
 
-// Make async then page.jsx file than
-export default async function ClientComponent() {
+export default function ClientComponent() {
   const session = useSession()
   
   // return JSX
   return <>your JSX code here</>
+}
+```
+
+## Use localstorage hook
+- **Client components**
+
+```js
+"use client"
+import { useLocalStorage } from '@/hooks';
+import Loading from './loading';
+
+export default function ClientComponent() {
+  const { value, setValue, isLoading } = useLocalStorage();
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  return (
+    <>
+      <pre>{JSON.stringify(value, null, 2)}</pre>
+       <Button
+          onClick={() =>
+            setValue((prev) => ({
+              ...prev,
+              theme: prev.theme === 'light' ? 'dark' : 'light'
+            }))
+          }
+        >
+          Toggle Theme
+        </Button>
+    </>
+  );
 }
 ```
 
@@ -232,6 +262,7 @@ export default async function ClientComponent() {
 - ``Shadcn``: React component library that offers a set of pre-built, customizable components for building modern web apps.
 - ``React Hook Form @7.54.2``: Performant, flexible and extensible forms with easy-to-use validation.
 - ``zod @3.24.1``: Zod is a schema declaration and validation library.
+- ``crypto-js @4.2.0``: Zod is a schema declaration and validation library.
 - ``swiper @11.1.15``: Swiper is the most modern free mobile touch slider with hardware accelerated transitions and amazing native behavior.
 - ``Tailwind CSS @3.4.1``: Utility-first CSS framework.
 - ``Tailwind Merge @3.4.1``: Merge the tailwind css util classes.

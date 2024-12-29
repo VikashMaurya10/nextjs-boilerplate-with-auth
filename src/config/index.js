@@ -25,5 +25,14 @@ export const ToastConfig = {
   }
 };
 
+/**
+ * Configure local-storage
+ */
+export const localStorageConfig = {
+  version: 1,
+  expiry: 24 * 60 * 60 * 1000, // 24 hour
+  encrypt: true
+};
+
 export * from './auth';
 export * from './constants';

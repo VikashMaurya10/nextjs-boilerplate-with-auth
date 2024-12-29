@@ -13,10 +13,10 @@ export * from './ui/dropdown-menu';
 export * from './ui/table';
 
 // Other components
-export * from './Loader';
-export * from './Header';
-export * from './Footer';
+export * from './loader';
+export * from './header';
+export * from './footer';
 export * from './FormInput';
-export * from './Swiper';
+export * from './swiper';
 export * from './ImageComponent';
 export * from './data-table';

@@ -60,10 +60,11 @@ const Swiper = forwardRef(
         )}
         <SwiperReact.Swiper
           onSwiper={setSwiperRef}
-          spaceBetween={14}
-          loop={true}
           modules={[Navigation, Autoplay, Pagination, Parallax]}
           className={cn('h-full w-full', className)}
+          spaceBetween={14}
+          loop={true}
+          speed={600}
           {...swiperOptions}
           // disable default navigation buttons
           navigation={false}

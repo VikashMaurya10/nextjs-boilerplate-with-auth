@@ -18,11 +18,13 @@ import { useErrorLog } from '@/hooks';
 import { responseHandler } from '@/lib';
 import { loginFormSchema } from '@/zod-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useRouter } from 'next/navigation';
 
 import { useForm } from 'react-hook-form';
 
 export const LoginForm = () => {
   //-------------- State & Variables --------------//
+  const router = useRouter();
   const handleError = useErrorLog('page/Login');
 
   //-------------- Use Effects --------------//
@@ -49,7 +51,8 @@ export const LoginForm = () => {
        * which already appended in url by middleware
        */
       if (res?.result) {
-        window.location.reload();
+        // window.location.reload();
+        router.refresh();
       }
     } catch (e) {
       handleError(e);
@@ -86,7 +89,9 @@ export const LoginForm = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit" disabled={form.formState.isSubmitting}>
+                Submit
+              </Button>
             </form>
           </Form>
         </div>
