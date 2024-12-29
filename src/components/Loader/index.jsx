@@ -5,7 +5,7 @@ import { Spinner } from '@/assets';
 
 export const Loader = () => {
   return (
-    <section className="pointer-events-none fixed inset-0 z-50 grid min-h-screen w-full place-items-center backdrop-blur-sm bg-black/5">
+    <section className="pointer-events-none fixed inset-0 z-50 grid min-h-screen w-full place-items-center bg-white backdrop-blur-sm">
       <button type="button" className="flex gap-1" disabled>
         <Spinner className="animate-spin text-2xl sm:text-3xl" />
         <span className="sm:text-lg">Loading</span>
