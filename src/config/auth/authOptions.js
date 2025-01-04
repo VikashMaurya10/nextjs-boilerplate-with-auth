@@ -54,6 +54,7 @@ export const authConfig = {
         token.phone_number = user.phone_number;
         token.image = user.image;
         token.role = user.role || 'user';
+        token.access_token = user.access_token;
       }
 
       // Update session
@@ -71,6 +72,7 @@ export const authConfig = {
       session.user.phone_number = token.phone_number;
       session.user.image = token.image;
       session.user.role = token.role;
+      session.user.access_token = token.access_token;
 
       return session;
     }

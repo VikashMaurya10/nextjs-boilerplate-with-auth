@@ -19,6 +19,7 @@ const DashboardPage = async () => {
 
   return (
     <>
+      {session.user.access_token}
       <pre>{JSON.stringify(session, null, 2)}</pre>
       <Index />
     </>
