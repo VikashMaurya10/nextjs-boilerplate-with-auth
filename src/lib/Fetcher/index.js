@@ -3,7 +3,8 @@
  */
 'use server';
 
-import { REVALIDATE_TIME } from '@/config';
+import { auth, REVALIDATE_TIME } from '@/config';
+import { env } from '../env';
 
 export async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -31,9 +32,8 @@ export const timeout = async (ms) => {
  * @returns {Promise<any>} - Parsed JSON response
  */
 export async function fetchAPI(endpoint, options = {}) {
-  const BASE_URL = process.env.API_URL;
-
-  // const session = await auth();
+  const session = await auth();
+  const BASE_URL = env.API_URL;
 
   const { method = 'GET', headers = {}, body, next } = options;
 
@@ -45,7 +45,7 @@ export async function fetchAPI(endpoint, options = {}) {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
-        // ...(session?.user && { Authorization: `Bearer ${session?.user?.token}` }),
+        ...(session?.user && { Authorization: `Bearer ${session?.user?.access_token}` }),
         ...headers
       },
       body: body ? JSON.stringify(body) : undefined,

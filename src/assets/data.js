@@ -10,7 +10,7 @@ export const USERS = [
   {
     first_name: 'John',
     last_name: 'Due',
-    username: 'vikashmaurya',
+    username: 'johndue123',
     email: 'johndue@gmail.com',
     phone_number: '9112345678',
     password: 'test@1234',
