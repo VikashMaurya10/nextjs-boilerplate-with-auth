@@ -8,6 +8,7 @@ export const loginFormSchema = z.object({
     .min(5, {
       message: 'Email must be required.'
     })
+    .email('This is not a valid email.')
     .max(255, {
       message: 'Email must have max 255 characters'
     }),

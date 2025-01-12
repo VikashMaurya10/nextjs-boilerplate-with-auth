@@ -9,7 +9,11 @@ const config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+      geistMono: ['var(--font-geist-sans)'],
+      geistSans: ['var(--font-geist-mono)']
+    }
   },
   plugins: [
     require('tailwindcss-animate'),

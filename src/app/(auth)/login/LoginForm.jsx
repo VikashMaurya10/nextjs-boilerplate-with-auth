@@ -19,6 +19,7 @@ import { responseHandler } from '@/lib';
 import { loginFormSchema } from '@/zod-schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 
 import { useForm } from 'react-hook-form';
 
@@ -26,6 +27,7 @@ export const LoginForm = () => {
   //-------------- State & Variables --------------//
   const router = useRouter();
   const handleError = useErrorLog('page/Login');
+  const [isPending, startTransition] = useTransition();
 
   //-------------- Use Effects --------------//
   const form = useForm({
@@ -43,17 +45,18 @@ export const LoginForm = () => {
    */
   const onLogin = async (values) => {
     try {
-      const res = await responseHandler(handleCredentialLogin(values), 'Login successfully.');
-      /**
-       * Redirect user if need.
-       * ELSE reload the window for update the user details
-       * THEN middleware redirect the user at requested path
-       * which already appended in url by middleware
-       */
-      if (res?.result) {
-        // window.location.reload();
-        router.refresh();
-      }
+      startTransition(async () => {
+        const res = await responseHandler(handleCredentialLogin(values), 'Login successfully.');
+        /**
+         * Redirect user if need.
+         * ELSE reload the window for update the user details
+         * THEN middleware redirect the user at requested path
+         * which already appended in url by middleware
+         */
+        if (res?.result) {
+          router.refresh();
+        }
+      });
     } catch (e) {
       handleError(e);
     }
@@ -89,8 +92,8 @@ export const LoginForm = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" disabled={form.formState.isSubmitting}>
-                Submit
+              <Button type="submit" disabled={isPending}>
+                {isPending ? 'Submiting...' : 'Submit'}
               </Button>
             </form>
           </Form>

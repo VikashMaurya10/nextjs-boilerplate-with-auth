@@ -1,4 +1,3 @@
-// import font
 import { APP_NAME, auth } from '@/config';
 import { geistMono, geistSans } from '@/fonts';
 import Wrapper from '@/lib/Wrapper';

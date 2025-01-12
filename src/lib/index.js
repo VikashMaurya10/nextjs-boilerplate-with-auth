@@ -8,3 +8,4 @@ export * from './utils';
 export * from './Fetcher';
 export * from './local-storage';
 export * from './env';
+export * from './web-vitals';

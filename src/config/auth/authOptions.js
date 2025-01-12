@@ -36,7 +36,7 @@ export const authConfig = {
         }
 
         const user = {
-          access_token: 'random token', // Get token form api res
+          access_token: 'secured authrization token', // Get token form api res
           ...res.user
         };
 
