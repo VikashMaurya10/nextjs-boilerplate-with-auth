@@ -2,6 +2,7 @@
  * Home page for application
  * Route name "/"
  */
+import { PageLayout } from '@/components';
 import Index from './Index';
 
 /**
@@ -14,9 +15,9 @@ export const metadata = {
 
 const Page = async () => {
   return (
-    <>
+    <PageLayout>
       <Index />
-    </>
+    </PageLayout>
   );
 };
 

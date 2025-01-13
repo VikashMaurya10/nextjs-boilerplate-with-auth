@@ -5,3 +5,4 @@
 
 export * from './useErrorLog';
 export * from './useLocalStorage';
+export * from './use-media-query';
