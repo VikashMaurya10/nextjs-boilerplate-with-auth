@@ -1,6 +1,12 @@
-import { APP_NAME, auth } from '@/config';
+/**
+ * This is a wrapper element on the root component.
+ * It handles all additional work and states needed before initializing root component.
+ */
+
+import { Toaster } from '@/components';
+import { APP_NAME, auth, ToastConfig } from '@/config';
 import { geistMono, geistSans } from '@/fonts';
-import Wrapper from '@/lib/Wrapper';
+import { LocalStorageProvider } from '@/hooks';
 import { SessionProvider } from 'next-auth/react';
 
 // import styles
@@ -17,13 +23,15 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const session = await auth();
+
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-geistMono mx-auto max-w-screen-2xl bg-neutral-400 text-black antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} dark mx-auto max-w-screen-2xl bg-black font-geistMono text-white antialiased`}
       >
         <SessionProvider session={session}>
-          <Wrapper>{children}</Wrapper>
+          <LocalStorageProvider>{children}</LocalStorageProvider>
+          <Toaster {...ToastConfig} />
         </SessionProvider>
       </body>
     </html>

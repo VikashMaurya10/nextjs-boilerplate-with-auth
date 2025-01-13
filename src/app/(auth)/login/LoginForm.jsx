@@ -65,7 +65,7 @@ export const LoginForm = () => {
   return (
     <>
       <section className="flex h-[80vh] items-center justify-center">
-        <div className="w-full rounded-md border border-gray-400 bg-white p-5 shadow max-sm:mx-4 sm:w-[28rem]">
+        <div className="w-full rounded-md border border-gray-400 bg-white p-5 shadow dark:bg-black/20 max-sm:mx-4 sm:w-[28rem]">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onLogin)} className="space-y-4">
               <FormField
