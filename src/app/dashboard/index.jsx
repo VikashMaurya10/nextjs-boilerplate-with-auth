@@ -14,14 +14,13 @@ const Index = () => {
   //-------------- useEffect Methods --------------//
 
   //-------------- Other Methods --------------//
-  if (isLoading) {
-    return <Loading />;
-  }
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
 
   return (
     <>
       <pre>{JSON.stringify(value, null, 2)}</pre>
-
       <Button
         disabled={isPending}
         className="mt-5"

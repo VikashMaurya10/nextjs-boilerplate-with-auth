@@ -1,6 +1,8 @@
-import { validateEnv } from "@/lib";
+import { validateClientEnv } from "./lib/env/client-env";
+import { validateServerEnv } from "./lib/env/server-env";
 
 // Register and validate environment variables at startup
 export async function register() {
-  validateEnv();
+  validateClientEnv();
+  validateServerEnv();
 }

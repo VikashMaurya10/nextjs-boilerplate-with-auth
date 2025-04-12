@@ -1,8 +1,9 @@
 /**
- * Export all hooks from index so that it can be imported from @/lib directly
+ * Export libs from index so that it can be imported from @/lib directly
  */
-export * from './utils';
+export * from './env';
 export * from './Fetcher';
 export * from './local-storage';
-export * from './env';
+export * from './utils';
 export * from './web-vitals';
+

@@ -1,11 +1,9 @@
-'use client';
+import React from 'react'
 
-const Index = ({ _this }) => {
+const Index = () => {
   return (
-    <>
-      <section>Home Page</section>
-    </>
-  );
-};
+    <div>Index</div>
+  )
+}
 
-export default Index;
+export default Index
