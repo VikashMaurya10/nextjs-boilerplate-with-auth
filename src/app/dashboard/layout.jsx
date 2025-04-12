@@ -14,7 +14,7 @@ const Documentlayout = ({ children }) => {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className="bg-sidebar m-2 ml-0 w-full rounded-lg p-3">
+      <main className="bg-sidebar flex flex-col m-2 ml-0 w-full rounded-lg p-3">
         <SidebarTrigger />
         {children}
       </main>
