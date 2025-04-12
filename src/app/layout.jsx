@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} dark mx-auto max-w-screen-2xl bg-black font-geistMono text-white antialiased`}
       >
         <SessionProvider session={session}>
-          <LocalStorageProvider>{children}</LocalStorageProvider>
+          <LocalStorageProvider migrations={[]}>{children}</LocalStorageProvider>
           <Toaster {...ToastConfig} />
         </SessionProvider>
       </body>

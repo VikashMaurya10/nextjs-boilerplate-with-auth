@@ -81,7 +81,6 @@ bun x --bun shadcn@latest add dialog
 - **styles** Folder contains global css and module css.
 - **zod-schema** Folder contain all zod schema for form validation.
 
-
 ```
 src
 :
@@ -250,6 +249,59 @@ export default function ClientComponent() {
     </>
   );
 }
+```
+
+## Use React Suspense
+- **Client components**
+
+```js
+'use client';
+import dynamic from 'next/dynamic';
+import { Suspense } from "react";
+
+// Dynamically load Test component
+const Test = dynamic(() => import('./Test'));
+
+const Parent = ({ _this }) => {
+  return (
+    <div>
+      <Suspense fallback={<Loader />}>
+        <Test />
+      </Suspense>
+    </div>
+  );
+};
+
+export default Parent;
+
+// Test.jsx
+'use client';
+
+import { useLocalStorage } from "@/hooks";
+import { Button } from "@/components";
+
+const Test = () => {
+    const { value, setValue, isLoading } = useLocalStorage();
+    return (
+        <div>
+            value: {JSON.stringify(value, null, 2)}
+            <Button
+                variant="reset"
+                size="reset"
+                onClick={() => {
+                    setValue((prev) => ({
+                        ...prev,
+                        theme: prev?.theme === 'light' ? 'dark' : 'light'
+                    }));
+                }}
+            >
+                Toggle Theme
+            </Button>
+        </div>
+    );
+};
+
+export default Test;
 ```
 
 > [!TIP]

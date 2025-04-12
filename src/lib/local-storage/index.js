@@ -1,6 +1,7 @@
 import CryptoJS from 'crypto-js';
+import { env } from '../env';
 
-const ENCRYPTION_KEY = process.env.NEXT_PUBLIC_ENCRYPTION_KEY;
+const ENCRYPTION_KEY = env.NEXT_PUBLIC_ENCRYPTION_KEY
 
 export const encrypt = (data) => {
   return CryptoJS.AES.encrypt(JSON.stringify(data), ENCRYPTION_KEY).toString();
@@ -54,9 +55,7 @@ export const migrateData = (data, currentVersion, migrations) => {
   const sortedMigrations = migrations
     .filter((m) => m.version > currentVersion)
     .sort((a, b) => a.version - b.version);
-
-  console.log('sortedMigrations', sortedMigrations);
-
+    
   for (const migration of sortedMigrations) {
     migratedData = migration.migrate(migratedData);
   }

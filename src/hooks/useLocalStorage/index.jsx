@@ -21,7 +21,25 @@ export const LocalStorageProvider = ({ children, migrations = [], debounceTime =
         const item = localStorage.getItem(key);
         if (!item) return null;
 
-        const parsedItem = JSON.parse(decrypt(item));
+        let parsedItem;
+
+        try {
+          // Try parsing plain JSON first
+          parsedItem = JSON.parse(item);
+
+          // If it's encrypted, decrypt it
+          if (parsedItem?.__encrypted) {
+            parsedItem = JSON.parse(decrypt(item));
+          }
+        } catch (err) {
+          // If plain parse failed, try decrypting (for backward compatibility)
+          try {
+            parsedItem = JSON.parse(decrypt(item));
+          } catch (decryptError) {
+            console.error(`Error decrypting localStorage key "${key}":`, decryptError);
+            return null;
+          }
+        }
 
         // Check expiry
         if (isExpired(parsedItem)) {
@@ -52,7 +70,8 @@ export const LocalStorageProvider = ({ children, migrations = [], debounceTime =
         const storageItem = {
           value,
           version: options.version,
-          ...(options.expiry && { expiry: Date.now() + options.expiry })
+          ...(options.expiry && { expiry: Date.now() + options.expiry }),
+          __encrypted: options.encrypt ?? false,
         };
 
         const serializedValue = JSON.stringify(storageItem);
