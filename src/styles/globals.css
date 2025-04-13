@@ -1,8 +1,0 @@
-/* Swiper pagination */
-:root {
-  --swiper-pagination-bullet-inactive-color: #868686;
-  --swiper-pagination-bullet-inactive-opacity: 1;
-  --swiper-pagination-color: #fc9d4f;
-  --swiper-pagination-bullet-size: 0.4rem; /*6.4px*/
-  --swiper-pagination-bullet-horizontal-gap: 0.15rem; /* 0.25px */
-}
