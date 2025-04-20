@@ -1,4 +1,6 @@
-import { SidebarProvider, SidebarTrigger, ThemeToggle } from '@/components';
+import { Suspense } from 'react';
+
+import { SidebarProvider, SidebarTrigger, Skeleton, ThemeToggle } from '@/components';
 import { APP_NAME } from '@/config';
 
 import { AppSidebar } from './_components/app-sidebar';
@@ -22,7 +24,9 @@ const DoshboardLayout = ({ children }) => {
           <SidebarTrigger />
           <div className="flex items-center justify-items-center gap-3">
             <ThemeToggle />
-            <NavUser />
+            <Suspense fallback={<Skeleton className="size-10 shrink-0 rounded-full" />}>
+              <NavUser />
+            </Suspense>
           </div>
         </div>
         <div className="p-2">{children}</div>

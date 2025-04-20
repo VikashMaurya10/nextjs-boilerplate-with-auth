@@ -1,15 +1,11 @@
 /**
  * This is a wrapper element on the root component.
  */
-import { SessionProvider } from 'next-auth/react';
-
-import { TailwindIndicator, ThemeProvider, Toaster } from '@/components';
-import { APP_NAME, ToastConfig } from '@/config';
+import { APP_NAME } from '@/config';
 import { geistMono, geistSans } from '@/fonts';
-import { LocalStorageProvider } from '@/hooks';
-import { auth } from '@/lib';
+import { Providers } from '@/lib';
 // Import styles
-import '@/styles/index.css';
+import '@/styles/tailwind.css';
 
 // Export metadata template for the app
 export const metadata = {
@@ -20,24 +16,11 @@ export const metadata = {
   description: 'Next js bolierplate with Auth v5',
 };
 
-const RootLayout = async ({ children }) => {
-  const session = await auth();
-
+const RootLayout = ({ children }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <SessionProvider session={session}>
-            <LocalStorageProvider>{children}</LocalStorageProvider>
-            <Toaster {...ToastConfig} />
-            <TailwindIndicator />
-          </SessionProvider>
-        </ThemeProvider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

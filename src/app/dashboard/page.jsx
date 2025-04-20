@@ -24,7 +24,7 @@ const DashboardPage = async () => {
 
   return (
     <div>
-      <code>{JSON.stringify(session, null, 2)}</code>
+      <pre>{JSON.stringify(session, null, 2)}</pre>
       <Index />
     </div>
   );

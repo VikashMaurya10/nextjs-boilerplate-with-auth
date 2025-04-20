@@ -1,6 +1,7 @@
 'use client';
 
 import { BadgeCheck, Bell, CreditCard, LogOut, Sparkles } from 'lucide-react';
+import { signOut, useSession } from 'next-auth/react';
 
 import {
   Avatar,
@@ -15,10 +16,9 @@ import {
   DropdownMenuTrigger,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
 } from '@/components';
 import { cn } from '@/lib';
-import { signOut, useSession } from 'next-auth/react';
 
 export const NavUser = () => {
   const session = useSession();
