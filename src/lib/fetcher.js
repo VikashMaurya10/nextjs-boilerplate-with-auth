@@ -58,7 +58,7 @@ export const fetchAPI = async (endpoint, options = {}) => {
     var response = {};
     response.status_code = res.status;
     response.data = await res.json();
-    return data;
+    return response;
   } catch (error) {
     console.log('fetchAPI', error);
     throw new Error(`API error: url- ${url}\n ${error.message}\n`, error);

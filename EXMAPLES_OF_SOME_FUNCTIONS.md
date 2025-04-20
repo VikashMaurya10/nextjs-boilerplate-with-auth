@@ -60,7 +60,7 @@ export default function ClientComponent() {
 
 
 ## Use React Suspense
-- **Client components**
+- 🧑‍💻 **Client components**
 
 ```js
 'use client';
@@ -110,4 +110,35 @@ const Test = () => {
 };
 
 export default Test;
+```
+
+## Use `fetchAPI` to Get User Profile Data
+
+This example demonstrates how to use the `fetchAPI` function to retrieve user profile data in a server-side component.
+
+- 🧪 Using `fetchAPI` in a `page.jsx`
+
+```js
+// app/profile/page.jsx
+import { fetchAPI } from '@/lib';
+
+export default async function ProfilePage() {
+  // Call your custom fetch function
+  const response = await fetchAPI('/user/profile');
+
+  if (response.status_code !== 200) {
+    return <div>Error fetching profile data</div>;
+  }
+
+  const user = response.data;
+
+  return (
+    <div>
+      <h1>👤 User Profile</h1>
+      <p><strong>Name:</strong> {user.name}</p>
+      <p><strong>Email:</strong> {user.email}</p>
+      {/* Add more fields as needed */}
+    </div>
+  );
+}
 ```
