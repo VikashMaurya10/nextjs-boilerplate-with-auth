@@ -3,6 +3,7 @@ import { z } from 'zod';
 // Schema for environments variables
 const envSchema = z.object({
   API_URL: z.string().url(),
+  NODE_ENV: z.enum(['development', 'production']),
 
   AUTH_SECRET: z.string().min(1),
   NEXTAUTH_URL: z.string().url(),
@@ -21,6 +22,7 @@ const EnvErrorMessages = (errors) => {
 
 const rowEnv = {
   API_URL: process.env.API_URL,
+  NODE_ENV: process.env.NODE_ENV,
   AUTH_SECRET: process.env.AUTH_SECRET,
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
 };
