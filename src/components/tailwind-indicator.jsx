@@ -1,4 +1,5 @@
 import { env } from '@/lib';
+
 import { Tooltip, TooltipContent, TooltipTrigger } from '.';
 
 export const TailwindIndicator = () => {
@@ -8,7 +9,7 @@ export const TailwindIndicator = () => {
     <Tooltip>
       <TooltipTrigger
         data-tailwind-indicator=""
-        className="dark:bg-background dark:border-muted dark:ring-background fixed right-5 bottom-16 z-50 flex size-9 cursor-pointer items-center justify-center rounded-full border-2 border-stone-500 bg-stone-700 p-1.5 font-mono text-xs text-white ring-1 ring-stone-700"
+        className="dark:bg-background dark:border-muted dark:ring-background fixed right-5 bottom-16 z-2147483647 flex size-9 cursor-pointer items-center justify-center rounded-full border-2 border-stone-500 bg-stone-700 p-1.5 font-mono text-xs text-white ring-1 ring-stone-700"
       >
         <svg viewBox="0 0 35 21" fill="none" className="text-black dark:text-white">
           <path

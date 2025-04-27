@@ -2,18 +2,18 @@
  * Login Page for application
  * Route name "/login"
  */
+import { GalleryVerticalEnd } from '@/assets';
+import { Image } from '@/components';
+import { APP_NAME } from '@/config';
 
 import { LoginForm } from './login-form';
-import { ImageComponent } from '@/components';
-import { GalleryVerticalEnd } from '@/assets';
-import { APP_NAME } from '@/config';
 
 /**
  * Metadata details
  */
 export const metadata = {
   title: 'Login',
-  description: 'Login page for Auth'
+  description: 'Login page for Auth',
 };
 
 const LoginPage = () => {
@@ -35,7 +35,7 @@ const LoginPage = () => {
         </div>
       </div>
       <div className="bg-muted relative hidden lg:block">
-        <ImageComponent
+        <Image
           src={null}
           alt="Image"
           className="absolute inset-0 h-full w-full object-cover dark:brightness-40 dark:grayscale-50"
