@@ -3,7 +3,10 @@
 import { ChevronRight } from 'lucide-react';
 
 import {
-  Collapsible, CollapsibleContent, CollapsibleTrigger, SidebarGroup,
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+  SidebarGroup,
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
@@ -13,7 +16,7 @@ import {
   SidebarMenuSubItem
 } from '@/components';
 
-export function NavMain({ items }) {
+export const NavMain = ({ items }) => {
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -52,4 +55,4 @@ export function NavMain({ items }) {
       </SidebarMenu>
     </SidebarGroup>
   );
-}
+};

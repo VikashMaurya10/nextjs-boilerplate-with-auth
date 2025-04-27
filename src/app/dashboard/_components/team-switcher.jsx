@@ -4,17 +4,20 @@ import { ChevronsUpDown, Plus } from 'lucide-react';
 import * as React from 'react';
 
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuTrigger,
-    SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar
 } from '@/components';
 
-export function TeamSwitcher({ teams }) {
+export const TeamSwitcher = ({ teams }) => {
   const { isMobile } = useSidebar();
   const [activeTeam, setActiveTeam] = React.useState(teams[0]);
 
@@ -69,4 +72,4 @@ export function TeamSwitcher({ teams }) {
       </SidebarMenuItem>
     </SidebarMenu>
   );
-}
+};

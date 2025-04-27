@@ -1,24 +1,8 @@
-/**
- * Home page for application
- * Route name "/"
- */
-import { PageLayout } from '@/components';
-import Index from './Index';
 
-/**
- * Metadata details
- */
-export const metadata = {
-  title: 'Home',
-  description: 'Home page'
-};
-
-const Page = async () => {
+const Home = () => {
   return (
-    <PageLayout>
-      <Index />
-    </PageLayout>
-  );
-};
+    <div>Home</div>
+  )
+}
 
-export default Page;
+export default Home

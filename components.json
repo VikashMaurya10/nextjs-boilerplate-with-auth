@@ -4,10 +4,10 @@
   "rsc": true,
   "tsx": false,
   "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "src/styles/index.css",
-    "baseColor": "stone",
-    "cssVariables": false,
+    "config": "",
+    "css": "src/styles/tailwind.css",
+    "baseColor": "gray",
+    "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
@@ -17,5 +17,5 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "iconLibrary": "radix"
+  "iconLibrary": "lucide"
 }

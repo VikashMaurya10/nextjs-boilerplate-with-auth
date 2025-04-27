@@ -2,30 +2,31 @@
  * Dashboard for application
  * Route name "/dashboard"
  */
+import { auth, delay } from '@/lib';
 
-import { PageLayout } from '@/components';
-import { auth } from '@/config';
 import Index from '.';
-import { delay } from '@/lib';
 
 /**
  * Metadata details
  */
 export const metadata = {
   title: 'Dashboard',
-  description: 'Dashboard description'
+  description: 'Dashboard description',
 };
 
 const DashboardPage = async () => {
   const session = await auth();
 
+  /**
+   * Fake api call
+   */
   await delay(3000);
 
   return (
-    <PageLayout>
+    <div>
       <pre>{JSON.stringify(session, null, 2)}</pre>
       <Index />
-    </PageLayout>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
-import { auth, DEFAULT_REDIRECTION, PROTECTED_ROUTE_STARTWITH, PUBLIC_ROUTES } from '@/config';
+import { DEFAULT_REDIRECTION, PROTECTED_ROUTE_STARTWITH, PUBLIC_ROUTES } from '@/config';
+import { auth } from '@/lib';
 
 export default auth((req) => {
   const { nextUrl } = req;
@@ -38,5 +39,5 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

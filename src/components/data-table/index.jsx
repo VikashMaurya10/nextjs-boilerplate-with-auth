@@ -1,5 +1,16 @@
 'use client';
 
+import { useState } from 'react';
+
+import {
+  flexRender,
+  getCoreRowModel,
+  getFilteredRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from '@tanstack/react-table';
+
 import { SettingIcon1, ThreeDotIcon } from '@/assets';
 import {
   Button,
@@ -15,23 +26,10 @@ import {
   TableCell,
   TableHead,
   TableHeader,
-  TableRow
+  TableRow,
 } from '@/components';
-import {
-  ColumnDef,
-  ColumnFiltersState,
-  flexRender,
-  SortingState,
-  VisibilityState,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getSortedRowModel,
-  getPaginationRowModel,
-  useReactTable
-} from '@tanstack/react-table';
 
-import { useState } from 'react';
-import { DataTablePagination } from './DataTablePagination';
+import { DataTablePagination } from './data-table-pagination';
 
 export const DataTable = ({ columns, data }) => {
   const [sorting, setSorting] = useState([]);
@@ -51,8 +49,8 @@ export const DataTable = ({ columns, data }) => {
     state: {
       sorting,
       columnFilters,
-      columnVisibility
-    }
+      columnVisibility,
+    },
   });
 
   const [serarchBy, setSearchBy] = useState(table.getAllColumns()[0].id);
@@ -88,7 +86,7 @@ export const DataTable = ({ columns, data }) => {
                       key={i}
                       className="capitalize"
                       checked={column.id == serarchBy}
-                      onCheckedChange={(value) => {
+                      onCheckedChange={() => {
                         setSearchBy(column.id);
                       }}
                     >

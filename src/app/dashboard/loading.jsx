@@ -4,7 +4,7 @@
 import { Loader } from '@/components';
 
 const Loading = () => {
-  return <Loader />;
+  return  <Loader className="min-h-full"/>;
 };
 
 export default Loading;

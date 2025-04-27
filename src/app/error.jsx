@@ -1,9 +1,10 @@
 'use client';
 
-import { Button } from '@/components';
 import { useEffect } from 'react';
 
-export default function Error({ error, reset }) {
+import { Button } from '@/components';
+
+const Error = ({ error, reset }) => {
   useEffect(() => {
     console.error(error);
   }, [error]);
@@ -18,4 +19,6 @@ export default function Error({ error, reset }) {
       </div>
     </section>
   );
-}
+};
+
+export default Error;

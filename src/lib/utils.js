@@ -6,7 +6,6 @@ export const cn = (...inputs) => {
   return twMerge(clsx(inputs));
 };
 
-
 /**
  * Handles the API response
  * @param {promise} api_call

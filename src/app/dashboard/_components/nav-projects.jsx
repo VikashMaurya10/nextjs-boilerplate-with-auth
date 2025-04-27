@@ -3,21 +3,21 @@
 import { Folder, Forward, MoreHorizontal, Trash2 } from 'lucide-react';
 
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger,
-    SidebarGroup,
-    SidebarGroupLabel,
-    SidebarMenu,
-    SidebarMenuAction,
-    SidebarMenuButton,
-    SidebarMenuItem,
-    useSidebar
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar
 } from '@/components';
 
-export function NavProjects({ projects }) {
+export const NavProjects = ({ projects }) => {
   const { isMobile } = useSidebar();
 
   return (
@@ -70,4 +70,4 @@ export function NavProjects({ projects }) {
       </SidebarMenu>
     </SidebarGroup>
   );
-}
+};

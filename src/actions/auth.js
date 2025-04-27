@@ -1,8 +1,7 @@
 'use server';
 
 import { USERS } from '@/assets/data';
-import { signIn } from '@/config';
-import { delay } from '@/lib';
+import { delay, signIn } from '@/lib';
 
 /**
  * Login user by credentials
@@ -28,7 +27,7 @@ export const LoginUser = async (values) => {
 
   let res = {
     status: 200,
-    result: true
+    result: true,
   };
 
   if (!user) {
@@ -46,11 +45,11 @@ export const handleCredentialLogin = async (values) => {
     await signIn('credentials', { redirect: false, ...values });
     return { status: 200, result: true };
   } catch (error) {
-    // catch error message with throw form auth.js file
+    // Catch error message with throw form auth.js file
     const err = {
       status: 200,
       result: false,
-      message: error.cause
+      message: error.cause,
     };
     return err;
   }

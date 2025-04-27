@@ -1,6 +1,5 @@
 'use client';
 
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarRail } from '@/components';
 import {
   AudioWaveform,
   BookOpen,
@@ -12,19 +11,14 @@ import {
   PieChart,
   Settings2,
   SquareTerminal
-} from 'lucide-react';
+} from '@/assets';
+import { Sidebar, SidebarContent, SidebarHeader, SidebarRail } from '@/components';
 import { NavMain } from './nav-main';
 import { NavProjects } from './nav-projects';
-import { NavUser } from './nav-user';
 import { TeamSwitcher } from './team-switcher';
 
 // This is sample data.
 const data = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg'
-  },
   teams: [
     {
       name: 'Acme Inc',
@@ -148,7 +142,7 @@ const data = {
   ]
 };
 
-export function AppSidebar({ ...props }) {
+export const AppSidebar = ({ ...props }) => {
   return (
     <Sidebar variant="floating" collapsible="icon" {...props}>
       <SidebarHeader>
@@ -158,10 +152,10 @@ export function AppSidebar({ ...props }) {
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
       </SidebarContent>
-      <SidebarFooter>
-        <NavUser user={data.user} />
-      </SidebarFooter>
+      {/* <SidebarFooter>
+        <NavUser />
+      </SidebarFooter> */}
       <SidebarRail />
     </Sidebar>
   );
-}
+};
