@@ -50,7 +50,7 @@ export const FileInput = ({ form, name = 'file', ...props }) => {
     <FormField
       control={form.control}
       name={name}
-      render={({ field }) => {
+      render={({}) => {
         return (
           <FormItem>
             <FormControl>
