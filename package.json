@@ -45,6 +45,7 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+    "chroma-js": "^3.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.3.0",
     "eslint-config-prettier": "^10.1.2",

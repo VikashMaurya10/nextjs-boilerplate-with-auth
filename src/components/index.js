@@ -39,6 +39,7 @@ export * from './skeleton-loader';
 export * from './stepper';
 export * from './swiper';
 export * from './tailwind-indicator';
+export * from './theme-generator-form';
 export * from './theme-provider';
 export * from './theme-toggle';
 
