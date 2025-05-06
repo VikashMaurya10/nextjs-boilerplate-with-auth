@@ -1,0 +1,93 @@
+name: Check Lint, Build, and Env
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-build-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+
+    env:
+      API_URL: ${{ secrets.API_URL }}
+      NEXT_AUTH_SECRET: ${{ secrets.NEXT_AUTH_SECRET }}
+      NEXTAUTH_URL: ${{ secrets.NEXTAUTH_URL }}
+      NODE_ENV: ${{ secrets.NODE_ENV }}
+      NEXT_PUBLIC_APP_URL: ${{ secrets.NEXT_PUBLIC_APP_URL }}
+      NEXT_PUBLIC_ENCRYPTION_KEY: ${{ secrets.NEXT_PUBLIC_ENCRYPTION_KEY }}
+      REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install Dependencies
+        run: bun install
+
+      - name: Install ESLint and Reviewdog
+        run: |
+          bun add -d eslint
+          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s -- -b . latest
+
+      - name: Run ESLint via Reviewdog
+        continue-on-error: true
+        run: |
+          bunx eslint . -f json | tee eslint_output.json | ./reviewdog -f=eslint -name="eslint" -reporter=github-pr-review
+
+      - name: Check Environment Variables
+        run: |
+          echo "Checking required ENV variables..."
+          test -n "$API_URL" && echo "API_URL loaded"
+          test -n "$NEXTAUTH_SECRET" && echo "NEXTAUTH_SECRET loaded"
+          test -n "$NEXTAUTH_URL" && echo "NEXTAUTH_URL loaded"
+          test -n "$NODE_ENV" && echo "NODE_ENV loaded"
+          test -n "$NEXT_PUBLIC_APP_URL" && echo "NEXT_PUBLIC_APP_URL loaded"
+          test -n "$NEXT_PUBLIC_ENCRYPTION_KEY" && echo "NEXT_PUBLIC_ENCRYPTION_KEY loaded"
+
+      - name: Build Project
+        id: build_step
+        continue-on-error: true
+        run: |
+          bun run build 2>&1 | tee build.log
+          echo "BUILD_EXIT_CODE=${PIPESTATUS[0]}" >> $GITHUB_ENV
+
+      - name: Report Build Failure in Summary
+        if: env.BUILD_EXIT_CODE != '0'
+        run: |
+          echo "### ❌ Build Failed" >> $GITHUB_STEP_SUMMARY
+          echo 'log' >> $GITHUB_STEP_SUMMARY
+          tail -n 50 build.log >> $GITHUB_STEP_SUMMARY || echo "No build log found."
+          echo '' >> $GITHUB_STEP_SUMMARY
+
+      - name: Report Build Failure on PR (with log tail)
+        if: env.BUILD_EXIT_CODE != '0'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fs = require('fs');
+            const logTail = fs.readFileSync('build.log', 'utf8').split('\n').slice(-50).join('\n');
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ❌ **Build failed.**\n\n\\`\log\n${logTail}\n\\\`
+            });
+
+      - name: Report Success on PR
+        if: env.BUILD_EXIT_CODE == '0'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "✅ All setup completed. Ready to deploy on server."
+            })
