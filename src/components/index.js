@@ -6,6 +6,7 @@
 // Shadcn components
 export * from './ui/accordion';
 export * from './ui/avatar';
+export * from './ui/badge';
 export * from './ui/button';
 export * from './ui/card';
 export * from './ui/collapsible';
@@ -14,6 +15,7 @@ export * from './ui/dropdown-menu';
 export * from './ui/form';
 export * from './ui/input';
 export * from './ui/label';
+export * from './ui/popover';
 export * from './ui/select';
 export * from './ui/separator';
 export * from './ui/sheet';
@@ -25,6 +27,7 @@ export * from './ui/textarea';
 export * from './ui/tooltip';
 
 // Other components
+export * from './avatar-group';
 export * from './data-table';
 export * from './data-table/data-table-column-header';
 export * from './data-table/data-table-pagination';

@@ -44,8 +44,8 @@ const data = {
       isActive: true,
       items: [
         {
-          title: 'History',
-          url: '#'
+          title: 'Calendar',
+          url: '/dashboard/calendar'
         },
         {
           title: 'Starred',
